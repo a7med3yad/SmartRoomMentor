@@ -1,0 +1,128 @@
+/* General Reset and Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif; /* استخدمنا خط Poppins أنيق */
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec); /* خلفية gradient */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+/* Container */
+.container {
+  background: #ffffff;
+  padding: 30px;
+  margin: 20px;
+  width: 100%;
+  max-width: 400px; /* زيادة العرض لشكل أفضل */
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* ظل أقوى */
+  transition: transform 0.3s ease; /* تأثير حركة خفيف */
+}
+
+.container:hover {
+  transform: translateY(-5px); /* تحريك الـ container لفوق لما نمرر الماوس */
+}
+
+/* Headings */
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+/* Inputs */
+input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #4CAF50, #45a049); /* Gradient للزر */
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #45a049, #3d8b40);
+  transform: scale(1.02); /* تكبير خفيف للزر */
+}
+
+/* Button Group for Control Page */
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px; /* مسافة بين الأزرار */
+  margin: 20px 0;
+}
+
+.control-btn {
+  width: 120px;
+  padding: 10px;
+  background: linear-gradient(to right, #4CAF50, #45a049);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Status and Links */
+p#status {
+  color: #2c3e50;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .container {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .button-group {
+    flex-direction: column; /* الأزرار تتصف عمودي على الشاشات الصغيرة */
+    gap: 10px;
+  }
+
+  .control-btn {
+    width: 100%;
+  }
+}

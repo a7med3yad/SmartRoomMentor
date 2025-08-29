@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome to Smart Room</h2>
+    <nav>
+      <a href="control.html">Control LED</a> |
+      <a href="dashboard.html">Sensors Dashboard</a> |
+      <a href="threshold.html">Threshold Settings</a> |
+      <a href="profile.html">Profile</a> |
+      <a href="index.html" onclick="logout()">Logout</a>
+    </nav>
+    <h3>Quick Overview</h3>
+    <p id="dashboardData">Waiting for sensor data...</p>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    function logout() {
+      localStorage.removeItem("token");
+      alert("Logged out!");
+    }
+  </script>
+</body>
+</html>
