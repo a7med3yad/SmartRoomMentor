@@ -1,6 +1,4 @@
-// auth.js
 
-// users الثابتين
 const users = [
   { name: "Ahmed Ayad", email: "3yad@example.com", password: "0000" },
   { name: "Test User", email: "test@example.com", password: "1234" },
@@ -36,13 +34,12 @@ function signup() {
   }
 }
 
-// دالة تستخدم في home.html لعرض بيانات اليوزر
 function loadProfile() {
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
   if (user) {
     document.getElementById("profileName").textContent = user.name;
     document.getElementById("profileEmail").textContent = user.email;
   } else {
-    window.location.href = "login.html"; // لو مفيش يوزر يرجعه للوجين
+    window.location.href = "login.html"; 
   }
 }
