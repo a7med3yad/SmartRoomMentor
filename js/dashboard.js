@@ -78,13 +78,11 @@ async function loadSensors() {
   }
 }
 
-// تغيير حالة IR كل دقيقة
 setInterval(() => {
-  ir = Math.random() > 0.5; // نص نص Detected/Not Detected
+  ir = Math.random() > 0.5;
   console.log("🕒 IR state updated:", ir ? "Detected" : "Not Detected");
 }, 60000);
 
-// تحديث باقي القيم
 setInterval(fetchSensorData, 5000);
 setInterval(loadSensors, 3000);
 
