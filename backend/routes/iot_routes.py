@@ -35,7 +35,6 @@ def set_threshold():
     hum = data.get("hum")
     gas = data.get("gas")
 
-    # نشر كل threshold لوحده
     if temp is not None:
         publish_threshold("temp", str(temp))
     if hum is not None:
@@ -69,7 +68,7 @@ def add_sensor():
     hum = data.get("humidity")
     gas = data.get("gas_level")
     obj = data.get("object_detected")
-    user_id = data.get("user_id", 1)  # default 1 لو مش مبعوت
+    user_id = data.get("user_id", 1)  
 
     response = insert_sensor_data(temp, hum, gas, obj, user_id)
     return jsonify(response.data), 201
