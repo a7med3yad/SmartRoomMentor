@@ -2,17 +2,14 @@ import paho.mqtt.client as mqtt
 import json
 from backend.services.supabase_service import insert_sensor_data
 
-# إعداد السيرفر بتاع HiveMQ Cloud
 MQTT_SERVER = "c55e6a8f972b49d5ac18ac8547c303ee.s1.eu.hivemq.cloud"
 MQTT_PORT = 8883
 MQTT_USER = "hivemq.webclient.1756471531545"
 MQTT_PASS = "D1o0ZS>g4ifjLa.#@9ON"
 
-# نخلي الـ client والبيانات جلوبال
 mqtt_client = None
 last_data = None
 
-# Callback لما يوصلك اتصال
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("✅ Connected to MQTT broker")
@@ -25,7 +22,6 @@ def on_connect(client, userdata, flags, rc):
     else:
         print(f"❌ MQTT connection failed with code {rc}")
 
-# Callback لما توصلك رسالة
 def on_message(client, userdata, msg):
     global last_data
     payload = msg.payload.decode()
@@ -39,7 +35,7 @@ def on_message(client, userdata, msg):
         print(f"📊 Threshold update => {msg.topic}: {payload}")
     elif msg.topic == "room/data":
         print(f"📡 Sensor Data => {payload}")
-        last_data = payload  # نخزن آخر بيانات المستشعر
+        last_data = payload  
         try:
             data = json.loads(payload)
             insert_sensor_data(
@@ -54,7 +50,6 @@ def on_message(client, userdata, msg):
         except json.JSONDecodeError:
             print("❌ Failed to parse sensor data")
 
-# تشغيل MQTT client
 def start_mqtt():
     global mqtt_client
     mqtt_client = mqtt.Client()
@@ -67,7 +62,6 @@ def start_mqtt():
     mqtt_client.loop_start()
     return mqtt_client
 
-# دوال النشر
 def publish_led(state: str):
     if mqtt_client:
         mqtt_client.publish("room/led/control", state)
