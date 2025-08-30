@@ -22,5 +22,5 @@ function loadDashboard() {
   });
 }
 
-setInterval(loadDashboard, 3000); // تحديث كل 3 ثواني
+setInterval(loadDashboard, 3000); 
 loadDashboard();
